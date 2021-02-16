@@ -2,33 +2,31 @@
 <%@ include file="common/navigation.jspf"%>
 
 <div class="container">
-    <table class="table table-striped">
-        <caption>Your Stocks are</caption>
-        <thead>
-            <tr>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Completed</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${todos}" var="todo">
-                <tr>
-                    <td>${todo.desc}</td>
-                    <td><fmt:formatDate pattern="dd/MM/yyyy"
-                            value="${todo.targetDate}" /></td>
-                    <td>${todo.done}</td>
-                    <td><a type="button" class="btn btn-primary"
-                        href="/update-todo?id=${todo.id}">Edit</a> <a type="button"
-                        class="btn btn-warning" href="/delete-todo?id=${todo.id}">Delete</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-    <div>
-        <a type="button" class="btn btn-success" href="/add-todo">Add</a>
-    </div>
+    <p>
+        <font color="red">${errorMessage}</font>
+    </p>
+    <form action="/login" method="POST">
+        <fieldset class="form-group">
+            <label>Tax Payer Name</label> <input name="name" type="text"
+                class="form-control" />
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="cat">Category</label> 
+            
+
+		<select name="category" type="category"
+                class="form-control" id="cat">
+  		<option value="volvo">Employee</option>
+  		<option value="saab">Corporation</option>
+  		<option value="mercedes">Small Business</option>
+  		<option value="audi">Self Employee</option>
+		</select>
+            
+          
+        </fieldset>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
 </div>
+
 <%@ include file="common/footer.jspf"%>

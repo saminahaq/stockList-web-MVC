@@ -15,11 +15,11 @@ public class TodoService {
     private static int todoCount = 3;
 
     static {
-        todos.add(new Todo(1, "in28Minutes", "Learn Spring MVC", new Date(),
+        todos.add(new Todo(1, "in28Minutes","Employee", "Learn Spring MVC", new Date(),
                 false));
-        todos.add(new Todo(2, "in28Minutes", "Learn Struts", new Date(), false));
-        todos.add(new Todo(3, "in28Minutes", "Learn Hibernate", new Date(),
-                false));
+        todos.add(new Todo(2, "in28Minutes", "self-Employee", "Learn Struts", new Date(), false));
+        todos.add(new Todo(2, "in28Minutes", "Corporation", "Learn Struts", new Date(), false));
+     
     }
 
     public List<Todo> retrieveTodos(String user) {
@@ -46,9 +46,9 @@ public class TodoService {
         todos.add(todo);
     }
 
-    public void addTodo(String name, String desc, Date targetDate,
+    public void addTodo(String name,String category, String desc, Date targetDate,
             boolean isDone) {
-        todos.add(new Todo(++todoCount, name, desc, targetDate, isDone));
+        todos.add(new Todo(++todoCount, name, category,desc, targetDate, isDone));
     }
 
     public void deleteTodo(int id) {

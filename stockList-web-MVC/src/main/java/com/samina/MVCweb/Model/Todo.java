@@ -8,6 +8,7 @@ public class Todo {
     private int id;
 
     private String user;
+    private String category;
 
     @Size(min = 10, message = "Enter atleast 10 Characters.")
     private String desc;
@@ -20,11 +21,12 @@ public class Todo {
         super();
     }
 
-    public Todo(int id, String user, String desc, Date targetDate,
+    public Todo(int id, String user, String category, String desc, Date targetDate,
             boolean isDone) {
         super();
         this.id = id;
         this.user = user;
+        this.category = category;
         this.desc = desc;
         this.targetDate = targetDate;
         this.isDone = isDone;
@@ -45,7 +47,13 @@ public class Todo {
     public void setUser(String user) {
         this.user = user;
     }
+    public String getCategory() {
+        return category;
+    }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
     public String getDesc() {
         return desc;
     }
@@ -99,7 +107,7 @@ public class Todo {
     @Override
     public String toString() {
         return String.format(
-                "Todo [id=%s, user=%s, desc=%s, targetDate=%s, isDone=%s]", id,
+                "Todo [id=%s, user=%s, category=%s, desc=%s, targetDate=%s, isDone=%s]", id,
                 user, desc, targetDate, isDone);
     }
 
